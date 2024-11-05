@@ -26,7 +26,7 @@ psql -p 5432 -h 10.160.1.29 -U postgres -d erp --quiet -f ./resources/createErp.
 echo ====================================================================
 echo ERP Validation - following output should be "1,000"
 echo ====================================================================
-psql -p 5432 -h 10.160.1.29 -U postgres -d crm -c "select count(*) from transactions;"
+psql -p 5432 -h 10.160.1.29 -U postgres -d erp -c "select count(*) from transactions;"
 
 
 # Deploy masking Hook Script to the Postgres staging server
