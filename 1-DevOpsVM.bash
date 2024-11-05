@@ -10,7 +10,7 @@ psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "CREATE DATABASE crm"
 psql -p 5432 -h 10.160.1.29 -U postgres -d crm --quiet -f ./resources/createCrm.sql
 
 echo ====================================================================
-echo CRM Validation - following output should be "200"
+echo CRM Validation - following count should be "200"
 echo ====================================================================
 psql -p 5432 -h 10.160.1.29 -U postgres -d crm -c "select count(*) from contacts;"
 
@@ -24,7 +24,7 @@ psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "CREATE DATABASE erp"
 psql -p 5432 -h 10.160.1.29 -U postgres -d erp --quiet -f ./resources/createErp.sql
 
 echo ====================================================================
-echo ERP Validation - following output should be "1,000"
+echo ERP Validation - following count should be "1000"
 echo ====================================================================
 psql -p 5432 -h 10.160.1.29 -U postgres -d erp -c "select count(*) from transactions;"
 
