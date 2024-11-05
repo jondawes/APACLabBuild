@@ -152,7 +152,7 @@ resource "delphix_vdb" "crm-mask" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
 
                             # Masking Job
                             ./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 46 > crmMask.log
@@ -191,7 +191,7 @@ resource "delphix_vdb" "erp-mask" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
 
                             # Masking Job
                             ./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 47 > erpMask.log
@@ -230,7 +230,7 @@ resource "delphix_vdb" "crm-dev" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
@@ -263,7 +263,7 @@ resource "delphix_vdb" "erp-dev" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
@@ -310,7 +310,7 @@ resource "delphix_vdb" "crm-qa" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
@@ -343,7 +343,7 @@ resource "delphix_vdb" "erp-qa" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
@@ -391,7 +391,7 @@ resource "delphix_vdb" "crm-enrich" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
@@ -424,7 +424,7 @@ resource "delphix_vdb" "erp-enrich" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }

@@ -39,4 +39,3 @@ echo ====================================================================
 
 scp ./resources/MaskJobExecution_API.bash postgres@10.160.1.74:~/
 
-
