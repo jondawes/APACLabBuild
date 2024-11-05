@@ -9,6 +9,10 @@ psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "DROP DATABASE IF EXISTS crm"
 psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "CREATE DATABASE crm"
 psql -p 5432 -h 10.160.1.29 -U postgres -d crm --quiet -f ./resources/createCrm.sql
 
+echo ====================================================================
+echo CRM Validation - following output should be "200"
+echo ====================================================================
+psql -p 5432 -h 10.160.1.29 -U postgres -d crm -c "select count(*) from contacts;"
 
 # Create ERP Database in Prod
 echo
@@ -19,8 +23,15 @@ psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "DROP DATABASE IF EXISTS erp"
 psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "CREATE DATABASE erp"
 psql -p 5432 -h 10.160.1.29 -U postgres -d erp --quiet -f ./resources/createErp.sql
 
-# Deplpoy masking Hook Script to the Postgres staging server
+echo ====================================================================
+echo ERP Validation - following output should be "1,000"
+echo ====================================================================
+psql -p 5432 -h 10.160.1.29 -U postgres -d crm -c "select count(*) from transactions;"
+
+
+# Deploy masking Hook Script to the Postgres staging server
     # This will prompt user for a password. To automate this, we need keys set up to enable passwordless SSH from the DevOps VM to the Postgres Server in the core image
+echo Deploying masking script to Postgres_Target server
 echo
 echo ====================================================================
 echo Enter  the password for the postgres user on Postgres Staging server
