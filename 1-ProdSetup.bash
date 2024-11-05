@@ -29,7 +29,7 @@ echo ====================================================================
 psql -p 5432 -h 10.160.1.29 -U postgres -d erp -c "select count(*) from transactions;"
 
 
-# Deploy masking Hook Script to the Postgres staging server
+# Deploy masking Hook Script to the Postgres staging server ??
     # This will prompt user for a password. To automate this, we need keys set up to enable passwordless SSH from the DevOps VM to the Postgres Server in the core image
 echo Deploying masking script to Postgres_Target server
 echo
