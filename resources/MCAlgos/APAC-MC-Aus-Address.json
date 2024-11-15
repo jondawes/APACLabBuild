@@ -1,0 +1,177 @@
+{
+  "algorithmName": "APAC - MC Address Aus Data",
+  "legacyName": "APAC - MC Address Aus Data",
+  "algorithmType": "COMPONENT",
+  "createdBy": "admin",
+  "maskType": "GENERIC_DATA_ROW",
+  "isTokenizationSupported": false,
+  "frameworkId": 32,
+  "pluginId": 7,
+  "fields": [
+    {
+      "fieldId": 24,
+      "name": "CITY",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional column CITY"
+    },
+    {
+      "fieldId": 25,
+      "name": "STREET",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional column STREET"
+    },
+    {
+      "fieldId": 26,
+      "name": "ZIP",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional column ZIP"
+    },
+    {
+      "fieldId": 27,
+      "name": "HOUSE_NO",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional column HOUSE_NO"
+    },
+    {
+      "fieldId": 28,
+      "name": "STREET_HOUSE_NO",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional STREET and HOUSE_NO"
+    },
+    {
+      "fieldId": 29,
+      "name": "REGION",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional REGION"
+    },
+    {
+      "fieldId": 30,
+      "name": "COUNTRY",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional COUNTRY"
+    },
+    {
+      "fieldId": 31,
+      "name": "COUNTRY_CODE",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional COUNTRY_CODE"
+    },
+    {
+      "fieldId": 32,
+      "name": "LONGITUDE",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional LONGITUDE"
+    },
+    {
+      "fieldId": 33,
+      "name": "LATITUDE",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional LATITUDE"
+    },
+    {
+      "fieldId": 34,
+      "name": "OFFICE",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional OFFICE"
+    },
+    {
+      "fieldId": 35,
+      "name": "ADDRESS",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional complete ADDRESS"
+    },
+    {
+      "fieldId": 36,
+      "name": "ADDRESS_LINE1",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional complete ADDRESS_LINE1"
+    },
+    {
+      "fieldId": 37,
+      "name": "ADDRESS_LINE2",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional complete ADDRESS_LINE2"
+    },
+    {
+      "fieldId": 38,
+      "name": "OPTION1",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional complete OPTION1"
+    },
+    {
+      "fieldId": 39,
+      "name": "OPTION2",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional complete OPTION2"
+    },
+    {
+      "fieldId": 40,
+      "name": "OPTION3",
+      "type": "STRING",
+      "isReadOnly": false,
+      "isOptional": true,
+      "description": "Optional complete OPTION3"
+    }
+  ],
+  "algorithmExtension": {
+    "option1": "LOOKUP",
+    "option2": "LOOKUP",
+    "option3": "LOOKUP",
+    "filterCity": false,
+    "lookupFile": {
+      "uri": "delphix-file://upload/f_f45f2be364354a50afde8e92c11aae18/address_data_file_view_202407181701.psv"
+      
+    },
+    "regexFields": null,
+    "csvDelimiter": "\\|",
+    "addressGroups": [ ],
+    "fallbackGroup": null,
+    "usZipMatching": false,
+    "enforceNotNull": true,
+    "matchingColumn": "",
+    "option1Algorithm": null,
+    "option2Algorithm": null,
+    "option3Algorithm": null,
+    "filterCityReapply": false,
+    "inputRemoveSpaces": true,
+    "inputCaseSensitive": false,
+    "externalSecurityKey": 0,
+    "filterCityValueList": "",
+    "preserveEmptyFields": true,
+    "columnsUsedToBuildHash": "",
+    "enforceNotNullReplacement": "_"
+  },
+  "isConfigInvalid": false
+}

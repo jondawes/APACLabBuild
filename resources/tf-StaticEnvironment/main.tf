@@ -2,7 +2,7 @@ terraform {
   required_providers {
     delphix = {
       source = "delphix-integrations/delphix"
-      version = "3.3"
+      version = "3.2.3"
     }
   }
 }
@@ -67,7 +67,7 @@ resource "delphix_appdata_dsource" "Postgres_crm" {
                 sourceHost: "10.160.1.29"
             }
         ],
-        postgresPort : 8002,
+        postgresPort : 8001,
         mountLocation : "/mnt/provision/pg_source_crm"
     })
     sync_parameters = jsonencode({
@@ -124,6 +124,7 @@ output "Postgres_crm_id" {
     depends_on      = [ delphix_appdata_dsource.Postgres_crm ]
     value           = delphix_appdata_dsource.Postgres_crm.id
 }
+
 output "Postgres_erp_id" {
     depends_on      = [ delphix_appdata_dsource.Postgres_erp ]
     value           = delphix_appdata_dsource.Postgres_erp.id
@@ -155,9 +156,9 @@ resource "delphix_vdb" "crm-mask" {
                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
 
                             # Masking Job
-                            ./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 46 > crmMask.log
+                            #./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 48 > crmMask.log
                             # Masking Job - will fail 
-                            #./MaskJobExecution_API.bash -h 192.168.1.1 -p 1 -j 46 > crmMask.log
+                            #./MaskJobExecution_API.bash -h 192.168.1.1 -p 1 -j 48 > crmMask.log
                             EOT
         shell           = "bash"
     }
@@ -194,9 +195,9 @@ resource "delphix_vdb" "erp-mask" {
                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
 
                             # Masking Job
-                            ./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 47 > erpMask.log
+                            #./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 52 > erpMask.log
                             # Masking Job - will fail 
-                            #./MaskJobExecution_API.bash -h 192.168.1.1 -p 1 -j 47 > erpMask.log
+                            #./MaskJobExecution_API.bash -h 192.168.1.1 -p 1 -j 52 > erpMask.log
                             EOT
         shell           = "bash"
     }
@@ -279,7 +280,8 @@ resource "delphix_vdb" "erp-dev" {
 resource "delphix_vdb_group" "apac-dev" {
     depends_on      = [ delphix_vdb.crm-dev, delphix_vdb.erp-dev ]
     name            = "apac-dev"
-    vdb_ids         = [delphix_vdb.crm-dev.id, delphix_vdb.erp-dev.id]
+    vdb_ids         = [ delphix_vdb.crm-dev.id, delphix_vdb.erp-dev.id ]
+    
 }
 
 ## Save vDB Group ID to output
@@ -287,6 +289,9 @@ output "apac-dev-id" {
     depends_on      = [ delphix_vdb_group.apac-dev ]
     value           = delphix_vdb_group.apac-dev.id
 }
+
+
+
 
 # QA vDBs
 ## CRM QA vDB
@@ -392,6 +397,9 @@ resource "delphix_vdb" "crm-enrich" {
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                            
+                            #Update database with extra record
+                            psql -p 8021 --quiet -d crm -c "INSERT INTO public.contacts (first_name, last_name, fullname, birth_date, unit_no, streeet_no, street, suburb, state, postcode, longitude, latitude, phone_number, email, id_doc_type, id_doc_number, description) VALUES('Jon', 'Hinde', 'Jon Lee Hinde', '1978-10-02', 'L14', '4-6', 'Blighe St', 'Sydney', 'NSW', '2000', '151.2105208', '-33.8657476', '+61 (02)8265 5625', 'Jon.Hinde@yahoo.com', '02', 'PA532705252', NULL);"
                             EOT
         shell           = "bash"
     }
@@ -448,3 +456,4 @@ output "apac-enrich-id" {
     depends_on      = [ delphix_vdb_group.apac-enrich ]
     value           = delphix_vdb_group.apac-enrich.id
 }
+

@@ -12,25 +12,25 @@ provider "delphix" {
   # Configuration options
   tls_insecure_skip = true
   key               = "1.3eHlCIKyK3sFatkZylMBiH0T1WN0NDdROOgYCc9M9KAZtXh5xtc46fNYKNuy43eY"
-  host              = "uvo1if0anxkwauqnolv.vm.cld.sr"
+  host              = "uvo1q66t4ewkwsoessx.vm.cld.sr"
 }
 
 # Variables - make modules later
 locals {
-    crm_enrichment_id             = "1-APPDATA_CONTAINER-672"
-    erp_enrichment_id             = "1-APPDATA_CONTAINER-669"
-    target_environment_id         = "1-UNIX_HOST_ENVIRONMENT-41"
-    ephemeral_group_id            = "GROUP-33"
+    crm_enrichment             = "crm-enrich"
+    erp_enrichment             = "erp-enrich"
+    environment_target         = "Postgres Staging"
+    group_ephemeral            = "Other"
 }
 
 
 # CRM vDB
 resource "delphix_vdb" "crm-ephemeral" {
     name                    = "crm-ephemeral"
-    source_data_id          = local.crm_enrichment_id
-    environment_id          = local.target_environment_id
+    source_data_id          = local.crm_enrichment
+    environment_id          = local.environment_target
     environment_user_id     = "postgres"
-    target_group_id         = local.ephemeral_group_id
+    target_group_id         = local.group_ephemeral
     database_name           = "crm-ephemeral"
     auto_select_repository  = true
     appdata_source_params   = jsonencode({
@@ -44,7 +44,7 @@ resource "delphix_vdb" "crm-ephemeral" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
@@ -59,10 +59,10 @@ resource "delphix_vdb" "crm-ephemeral" {
 # ERP vDB
 resource "delphix_vdb" "erp-ephemeral" {
     name                    = "erp-ephemeral"
-    source_data_id          = local.erp_enrichment_id
-    environment_id          = local.target_environment_id
+    source_data_id          = local.erp_enrichment
+    environment_id          = local.environment_target
     environment_user_id     = "postgres"
-    target_group_id         = local.ephemeral_group_id
+    target_group_id         = local.group_ephemeral
     database_name           = "erp-ephemeral"
     auto_select_repository  = true
     appdata_source_params = jsonencode({
@@ -76,7 +76,7 @@ resource "delphix_vdb" "erp-ephemeral" {
                             # Update pg_hba.conf to allow all IPv4 traffic 
                             echo "host  all   all   0.0.0.0/0    trust"  >> $DLPX_DATA_DIRECTORY/data/pg_hba.conf
                             # reload postgress to make above take effect
-                            /usr/pgsql-12/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
+                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
                             EOT
         shell           = "bash"
     }
