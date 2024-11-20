@@ -1,0 +1,36 @@
+{
+    "_pageInfo": {
+      "numberOnPage": 105,
+      "total": 105
+    },
+    "responseList": [
+      {
+        "objectIdentifier": {
+          "algorithmName": "APAC - MC Address Aus Data"
+        },
+        "objectType": "USER_ALGORITHM",
+        "revisionHash": "d9328d444a2831415cd54803b0a17365226c1044"
+      },
+      {
+        "objectIdentifier": {
+          "algorithmName": "APAC - Email Fullname"
+        },
+        "objectType": "USER_ALGORITHM",
+        "revisionHash": "98e538bff2d49983e8a354a927ee494b77940fd6"
+      },
+      {
+        "objectIdentifier": {
+          "algorithmName": "APAC - REDACT"
+        },
+        "objectType": "USER_ALGORITHM",
+        "revisionHash": "0189857c964b4ef4337d5dbb57526ec065d6afd1"
+      },
+      {
+        "objectIdentifier": {
+          "algorithmName": "APAC - Conditional Identity"
+        },
+        "objectType": "USER_ALGORITHM",
+        "revisionHash": "c50330632ebe2adb104fe3ea2d27cd1f66e67f17"
+      }
+    ]
+  }

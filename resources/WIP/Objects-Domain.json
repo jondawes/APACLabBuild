@@ -1,0 +1,29 @@
+{
+    "_pageInfo": {
+      "numberOnPage": 110,
+      "total": 110
+    },
+    "responseList": [
+      {
+        "objectIdentifier": {
+          "id": "APAC - REDACT"
+        },
+        "objectType": "DOMAIN",
+        "revisionHash": "fee523cf10e7b61235601e80dccd934559bfdd98"
+      },
+      {
+        "objectIdentifier": {
+          "id": "APAC - Email"
+        },
+        "objectType": "DOMAIN",
+        "revisionHash": "aa802007302be2b1031ceb00e1b95eb021239e7a"
+      },
+      {
+        "objectIdentifier": {
+          "id": "APAC - ID Numbers"
+        },
+        "objectType": "DOMAIN",
+        "revisionHash": "0f071d5131b53c794492d6c8f50507c2b099cef3"
+      }
+    ]
+  }

@@ -1,0 +1,78 @@
+{
+    "_pageInfo": {
+      "numberOnPage": 10,
+      "total": 10
+    },
+    "responseList": [
+      {
+        "objectIdentifier": {
+          "id": 1
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "ea36edc0780877b09c79eb4b411f5f323da70f84"
+      },
+      {
+        "objectIdentifier": {
+          "id": 2
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "66b5aaebfa634801656de2e9e5a182122df6a0aa"
+      },
+      {
+        "objectIdentifier": {
+          "id": 3
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "ad5b027a325060b95523ed4a61664b009272d582"
+      },
+      {
+        "objectIdentifier": {
+          "id": 4
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "e4fb33823c929e2ce48375ab9ef615a8625c39d1"
+      },
+      {
+        "objectIdentifier": {
+          "id": 5
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "75b4ba7a4dccfa54e301e3f54ce79f4bcdb0e299"
+      },
+      {
+        "objectIdentifier": {
+          "id": 6
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "0bd74aeceea43fb83b8e6f015fc693715ea9d598"
+      },
+      {
+        "objectIdentifier": {
+          "id": 7
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "787d98dcf79bf24bec00cd4da3cfbbc94f42061c"
+      },
+      {
+        "objectIdentifier": {
+          "id": 8
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "527f106dd2bffb5e779e1a4fae97ec7757e5b335"
+      },
+      {
+        "objectIdentifier": {
+          "id": 9
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "37d70127c02b1173b67471565ef2876b1f025715"
+      },
+      {
+        "objectIdentifier": {
+          "id": 11
+        },
+        "objectType": "PROFILE_SET",
+        "revisionHash": "55148b1b7436422bccad8700a9cdb981bf63b9f8"
+      }
+    ]
+  }

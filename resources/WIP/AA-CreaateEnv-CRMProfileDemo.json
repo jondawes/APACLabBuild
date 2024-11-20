@@ -1,0 +1,15 @@
+{
+    "environmentName": "CRM Profile Demo",
+    "applicationId": "11",
+    "purpose": "MASK"
+  }
+
+
+  {
+    "environmentId": 25,
+    "environmentName": "CRM Profile Demo",
+    "applicationId": 11,
+    "applicationName": "CRM",
+    "purpose": "MASK",
+    "isWorkflowEnabled": false
+  }

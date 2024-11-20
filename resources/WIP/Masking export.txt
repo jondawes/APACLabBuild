@@ -1,0 +1,10 @@
+environments:
+
+24  CRM Profile Demo
+25  CRM Mask GC
+28  ERP Profile Demo
+30  ERP Mask GC
+
+Tried just environment - error that environment must exist - WTF??
+Created an imported - needs algos (so dependencies are NOT exported)
+Imparted algos then environment (that exists) 0 
