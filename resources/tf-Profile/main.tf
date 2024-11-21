@@ -12,7 +12,7 @@ provider "delphix" {
   # Configuration options
   tls_insecure_skip = true
   key               = "1.3eHlCIKyK3sFatkZylMBiH0T1WN0NDdROOgYCc9M9KAZtXh5xtc46fNYKNuy43eY"
-  host              = "uvo1q66t4ewkwsoessx.vm.cld.sr"
+  host              = "10.160.1.141"
 }
 
 
@@ -21,7 +21,7 @@ locals {
     crm_source           = "Postgres_crm"
     erp_source           = "Postgres_erp"
     environment_target   = "Postgres Staging"
-    group_mask              = "Other"
+    group_mask           = "Other"
 }
 
 # MASK Profile Demo vDB - CRM data
