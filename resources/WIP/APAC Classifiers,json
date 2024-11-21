@@ -1,0 +1,169 @@
+{
+  "_pageInfo": {
+    "numberOnPage": 8,
+    "total": 8
+  },
+  "responseList": [
+    {
+      "classifierId": 164,
+      "classifierName": "APAC - TEXT - Path",
+      "frameworkId": 3,
+      "domainName": "APAC - REDACT",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "paths": [
+          {
+            "matchType": "REGEX",
+            "fieldValue": "(?>(free[-_ ]?text|comment|description|note|remark|text|user[-_ ]?input|user[-_ ]?text))",
+            "parentValue": "",
+            "caseSensitive": false,
+            "matchStrength": 0.67,
+            "allowPartialMatch": true
+          }
+        ],
+        "rejectStrength": 0
+      }
+    },
+    {
+      "classifierId": 165,
+      "classifierName": "APAC - TEXT - Type",
+      "frameworkId": 4,
+      "domainName": "APAC - REDACT",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "allowedTypes": [
+          {
+            "typeName": "String",
+            "minimumLength": 100
+          }
+        ],
+        "matchAutoIncrementingColumn": false
+      }
+    },
+    {
+      "classifierId": 166,
+      "classifierName": "APAC - Email Address - Path",
+      "frameworkId": 3,
+      "domainName": "APAC - Email",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "paths": [
+          {
+            "matchType": "REGEX",
+            "fieldValue": "(?i)(?>(email_?-? ?)(addr?e?s?s?)?)$",
+            "parentValue": "",
+            "caseSensitive": false,
+            "matchStrength": 0.67,
+            "allowPartialMatch": true
+          },
+          {
+            "matchType": "REGEX",
+            "fieldValue": "(?i)(cust|customer|partner|home|private|def|default)_?-? ?(email)_?-? ?(address|)",
+            "parentValue": "",
+            "caseSensitive": false,
+            "matchStrength": 0.67,
+            "allowPartialMatch": true
+          }
+        ],
+        "rejectStrength": 0
+      }
+    },
+    {
+      "classifierId": 167,
+      "classifierName": "APAC - Email Address - Regex",
+      "frameworkId": 1,
+      "domainName": "APAC - Email",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "dataPatterns": [
+          {
+            "regex": "[A-Z0-9.!#$%&'*+/=?^_{|}~-]{1,64}@(?=.{1,255}$)[A-Z0-9-]+(?:\\.[A-Z0-9-]+)*",
+            "checksumType": "NONE",
+            "caseSensitive": false,
+            "matchStrength": 0.9,
+            "dataCleanRegex": "",
+            "allowPartialMatch": false
+          }
+        ],
+        "rejectStrength": 1
+      }
+    },
+    {
+      "classifierId": 168,
+      "classifierName": "APAC - Email Address - Type",
+      "frameworkId": 4,
+      "domainName": "APAC - Email",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "allowedTypes": [
+          {
+            "typeName": "String",
+            "minimumLength": 20
+          }
+        ],
+        "matchAutoIncrementingColumn": false
+      }
+    },
+    {
+      "classifierId": 169,
+      "classifierName": "APAC - ID Numbers - Path",
+      "description": "",
+      "frameworkId": 3,
+      "domainName": "APAC - ID Numbers",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "paths": [
+          {
+            "matchType": "REGEX",
+            "fieldValue": "(?i)(id_doc|passport|drivers|licence)",
+            "parentValue": "",
+            "caseSensitive": false,
+            "matchStrength": 0.67,
+            "allowPartialMatch": true
+          }
+        ],
+        "rejectStrength": 0
+      }
+    },
+    {
+      "classifierId": 170,
+      "classifierName": "APAC - Suburb",
+      "frameworkId": 3,
+      "domainName": "CITY",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "paths": [
+          {
+            "matchType": "REGEX",
+            "fieldValue": "(?i)(suburb)",
+            "parentValue": "",
+            "caseSensitive": false,
+            "matchStrength": 0.67,
+            "allowPartialMatch": true
+          }
+        ],
+        "rejectStrength": 0
+      }
+    },
+    {
+      "classifierId": 172,
+      "classifierName": "APAC - Fullname",
+      "frameworkId": 3,
+      "domainName": "FULL_NAME",
+      "createdBy": "admin",
+      "classifierConfiguration": {
+        "paths": [
+          {
+            "matchType": "REGEX",
+            "fieldValue": "(ship_name)",
+            "parentValue": "",
+            "caseSensitive": false,
+            "matchStrength": 1,
+            "allowPartialMatch": true
+          }
+        ],
+        "rejectStrength": 0
+      }
+    }
+  ]
+}

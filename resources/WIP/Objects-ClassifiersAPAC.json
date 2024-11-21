@@ -1,0 +1,60 @@
+{
+"responseList": [
+    {
+        "objectIdentifier": {
+        "id": 164
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "cc8e18e15801ef2f5301c1e069ef331edf23fac9"
+    },
+    {
+        "objectIdentifier": {
+        "id": 165
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "2f21b37891337d50aa2b659ea1266ed9834a65fb"
+    },
+    {
+        "objectIdentifier": {
+        "id": 166
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "7bf9582b45be2a07fb2c4fd9b8bc2f1e629c9f07"
+    },
+    {
+        "objectIdentifier": {
+        "id": 167
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "92f084bf51154ee6953565d6ba98bf2c960b49e7"
+    },
+    {
+        "objectIdentifier": {
+        "id": 168
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "887c11e906b9e9bcd19e0961c49457a000fa6b38"
+    },
+    {
+        "objectIdentifier": {
+        "id": 169
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "23081edaf01748236039db50b54be20b383d11f4"
+    },
+    {
+        "objectIdentifier": {
+        "id": 170
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "bf8419f135f994222fc675003b6cf57b3021aa3a"
+    },
+    {
+        "objectIdentifier": {
+        "id": 172
+        },
+        "objectType": "CLASSIFIER",
+        "revisionHash": "e93f9e245ece06fba59c255f3514e4c15d8cef73"
+    }
+]
+}
