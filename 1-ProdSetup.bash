@@ -7,7 +7,7 @@ echo
 
 psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "DROP DATABASE IF EXISTS crm" 
 psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "CREATE DATABASE crm"
-psql -p 5432 -h 10.160.1.29 -U postgres -d crm --quiet -f ./resources/createCrm.sql
+psql -p 5432 -h 10.160.1.29 -U postgres -d crm --quiet -f ./resources/SQLScripts/createCrm.sql
 
 echo ====================================================================
 echo CRM Validation - following count should be "200"
@@ -21,7 +21,7 @@ echo
 
 psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "DROP DATABASE IF EXISTS erp"
 psql -p 5432 -h 10.160.1.29 -U postgres --quiet -c "CREATE DATABASE erp"
-psql -p 5432 -h 10.160.1.29 -U postgres -d erp --quiet -f ./resources/createErp.sql
+psql -p 5432 -h 10.160.1.29 -U postgres -d erp --quiet -f ./resources/SQLScripts/createErp.sql
 
 echo ====================================================================
 echo ERP Validation - following count should be "1000"
