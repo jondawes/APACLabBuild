@@ -310,7 +310,7 @@ result=$(curl -X 'GET' -k \
   ) # End
 
 
-CRMMASKGCJOBID=$( echo $result | jq -r .responseList.maskingJobId )
+CRMMASKGCJOBID=$( echo $result | jq -r .responseList[0].maskingJobId )
 echo
 echo $result
 echoecho CRM Mask GC Job ID : $CRMMASKGCJOBID
@@ -326,7 +326,7 @@ result=$(curl -X 'GET' -k \
   ) # End
 
 
-ERPMASKGCJOBID=$( echo $result | jq -r .responseList.maskingJobId )
+ERPMASKGCJOBID=$( echo $result | jq -r .responseList[0].maskingJobId )
 echo
 echo $result
 echo
