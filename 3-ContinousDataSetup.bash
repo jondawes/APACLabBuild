@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#  Need to run 01B-Create local Demo environment that exists in Jenkins already
+#  Need to run 01A-Create DCT environment that exists in Jenkins already
 
 # dSources
 ./dct-toolkit create_postgres_source environment_id="Postgres Source" name="Postgres_crm" repository_id="Postgres vFiles (15.0)" 
