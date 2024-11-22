@@ -19,3 +19,5 @@ echo
 cd ./resources/tf-StaticEnvironment
 terraform init
 terraform apply --auto-approve
+
+cd ../..
