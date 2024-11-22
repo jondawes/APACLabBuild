@@ -1,23 +1,23 @@
-In the directory the following resources are available.
+In this directory the following resources are available.
 
-*MaskJobExecution_API.bash* - a script that is deployed tot he staging Postgres server to execute the masking jobs. This script is called by a hook script in the vDB, with the compliance engine IP and masking job as arguments. If the masking job is unable to be started, or fails to complete, this script will return an error exit code to ensure masking is enforced properly by the Data Engine.
+*MaskJobExecution_API.bash* - a script that is deployed to the staging Postgres server to execute the masking jobs. This script is called by a hook script in the vDB, with the compliance engine IP and masking job as arguments. If the masking job is unable to be started, or fails to complete, this script will return an error exit code to ensure masking is enforced properly by the Data Engine.
 
 # CCE Imports
-Contains the JSON files that make up the required Continuous COmpliance Engine configuration. These are used by the scripts in the root directory.
+Contains the JSON files that make up the required Continuous Compliance Engine configuration. These are used by the scripts in the root directory.
 
 Included is:
 - Algorithms-MC.json - includes the Multi Column algorithms for Australian Addresses and the Identity Document columns.
-- ProfileSet-ASDD-APAC.json - A custome ASDD Profile set to use the custome algorithms. Includes custom Classifiers, Domains and further custom algorithms.
+- ProfileSet-ASDD-APAC.json - A custom ASDD Profile set that uses the custom algorithms. Includes custom Classifiers, Domains and further custom algorithms.
 - Environment-*.json - Files for each of the environments that are created in the demo environment.
 
 # DBeaver Project
-A single file that can be imported to DBeaver with a project called APAC Demo containing pre-configured connections to all the vDBs that are created in the environment. This needs to be manually imported in DBeaver on the Developer VM.
+A single file that can be imported to DBeaver with a project called APAC Demo containing pre-configured connections to all the vDBs that are created. This needs to be manually imported in DBeaver on the Developer VM.
 
 # Free Text Redaction
 Components used to create a custom free text redaction algorithm. This algorithm is imported as part of the profile set in the CCEImports folder so does not need to be created, but the files are provided for reference.
 
-# Masking Enviroments
-THis includes the file which will be used to reset the demo environment when doing profile demos. The files include the Ruleset configuratoins for the matching environments (RS-CRM-Profile-Demo and RS-ERP-Profile-Demo) with all Domain and Algorithm entries blank. This enables easily reseting the environment after profiling has been completed.
+# Masking Environments
+This includes the file which will be used to reset the demo environment when doing profile demos. The files include the Ruleset configuratoins for the matching environments (RS-CRM-Profile-Demo and RS-ERP-Profile-Demo) with all Domain and Algorithm entries blank. This enables easily reseting the environment after profiling has been completed.
 
 # MC Algos
 Contains the content required to re-create the custom multi column algorithms used. These are imported as part of the Algorithms in the CCEImports folder so do not need to be created, but the files are provided for reference. The files are:
