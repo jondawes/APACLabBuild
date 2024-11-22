@@ -1,7 +1,6 @@
 #!/bin/bash
 
 CCEADDRESS=$(jq -r .CCEADDRESS config.json)
-CCEADDRESS="uvo1r4nau0c9l8943kk.vm.cld.sr"
 CCEUSER=$(jq -r .CCEUSER config.json)
 CCEPWD=$(jq -r .CCEPWD config.json)
 
