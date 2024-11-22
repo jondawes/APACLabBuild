@@ -156,7 +156,7 @@ resource "delphix_vdb" "crm-mask" {
                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
 
                             # Masking Job
-                            #./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 50 > crmMask.log
+                            ./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 50 > crmMask.log
                             # Masking Job - will fail 
                             #./MaskJobExecution_API.bash -h 192.168.1.1 -p 1 -j 50 > crmMask.log
                             EOT
@@ -195,7 +195,7 @@ resource "delphix_vdb" "erp-mask" {
                             /usr/bin/pg_ctl reload -D $DLPX_DATA_DIRECTORY/data
 
                             # Masking Job
-                            #./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 54 > erpMask.log
+                            ./MaskJobExecution_API.bash -h 10.160.1.160 -p 1 -j 54 > erpMask.log
                             # Masking Job - will fail 
                             #./MaskJobExecution_API.bash -h 192.168.1.1 -p 1 -j 54 > erpMask.log
                             EOT
