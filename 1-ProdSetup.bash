@@ -39,3 +39,10 @@ echo ====================================================================
 
 scp ./resources/MaskJobExecution_API.bash postgres@10.160.1.74:~/
 
+echo
+echo
+echo ====================================================================
+echo ACTION REQUIRED:
+echo To confirm successfully completion of this job verify that the 
+echo expected data is present in CRM PROD and ERP PROD in DBeaver
+echo ====================================================================

@@ -1,6 +1,24 @@
 #!/bin/bash
 
 #  Need to run 01A-Create DCT environment that exists in Jenkins already
+echo
+echo
+echo ====================================================================
+echo ACTION REQUIRED:
+echo Before you run thsi script, ensure the DCT evironment is created
+echo 
+echo In Jenkins run the pipeline:
+echo            Demo 2.0 Postgres > 01A-Create DCT environment
+echo 
+echo Then verify that the DCT instance is showing all 3 Postgress Servers
+echo in the Infrastructure COnnections screen:
+echo    Postgres Source
+echo    Postgres Staging
+echo    Postgres Target
+echo ====================================================================
+echo
+read -p "Hit enter to validate DCT is ready..." input
+
 
 # Get masking Job IDs for hook scrripts
 CRMMASKGCJOBID=$(cat config.json | jq -r .CRMMASKGCJOBID)
@@ -33,3 +51,28 @@ terraform init
 terraform apply --auto-approve
 
 cd ../..
+
+echo
+echo
+echo ====================================================================
+echo ACTION REQUIRED:
+echo Verify that the following exis in DCT and that vDBs are acessible
+echo in DBeaver:
+echo
+echo dSources:
+echo    Postgres_crm
+echo    Postgres_erp
+echo vDBs:
+echo    crm-dev
+echo    crm-enrich      With hook scrtip to add a record
+echo    crm-mask        With masking hook script
+echo    crm-qa
+echo    erp-dev
+echo    erp-enrich
+echo    erp-mask        With masking hook script
+echo    erp-qa
+echo vDB Groups:
+echo    apac-dev
+echo    apac-enrich
+echo    apac-qa
+echo ====================================================================

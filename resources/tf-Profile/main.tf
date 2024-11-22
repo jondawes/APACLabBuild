@@ -12,7 +12,7 @@ provider "delphix" {
   # Configuration options
   tls_insecure_skip = true
   key               = "1.3eHlCIKyK3sFatkZylMBiH0T1WN0NDdROOgYCc9M9KAZtXh5xtc46fNYKNuy43eY"
-  host              = ""
+  host              = "10.160.1.141"
 }
 
 
@@ -25,7 +25,7 @@ locals {
 }
 
 # MASK Profile Demo vDB - CRM data
-resource "delphix_vdb" "crm-mask" {
+resource "delphix_vdb" "crm-profile" {
     name                    = "crm-profile"
     source_data_id          = local.crm_source
     environment_id          = local.environment_target
