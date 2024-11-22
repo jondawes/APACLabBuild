@@ -21,14 +21,11 @@ DCTADDRESS=$(cat config.json | jq -r .DCTADDRESS)
 echo DCT ADDRESS : $DCTADDRESS
 echo
 # Update Terraform jobs with correct DCT Address
-host              = ""
 
 echo updating DCT Address...
 sed -i "s/host              = \"\"/host              = \"$DCTADDRESS\"/g" ./resources/tf-StaticEnvironment/main.tf
 sed -i "s/host              = \"\"/host              = \"$DCTADDRESS\"/g" ./resources/tf-Profile/main.tf
 sed -i "s/host              = \"\"/host              = \"$DCTADDRESS\"/g" ./resources/tf-Ephemeral/main.tf
-
-#sed -i "s/host              = \"\"/host              = \"10.160.1.141\"/g" ./resources/tf-StaticEnvironment/main.tf
 
 # Build Static environment
 cd ./resources/tf-StaticEnvironment
