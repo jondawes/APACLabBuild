@@ -17,7 +17,7 @@ sed -i "s/-p 1 -j 54 > erpMask.log/-p 1 -j $ERPMASKGCJOBID > erpMask.log/g" ./re
 echo
 
 # Get configuted SC Address
-DCTADDRESS=$(cat config.json | jq -r .CRMMASKGCJOBID)
+DCTADDRESS=$(cat config.json | jq -r .DCTADDRESS)
 echo DCT ADDRESS : $DCTADDRESS
 echo
 # Update Terraform jobs with correct DCT Address
