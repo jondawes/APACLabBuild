@@ -2,8 +2,8 @@
   "CCEADDRESS": "10.160.1.160",
   "CCEUSER": "admin",
   "CCEPWD": "Delphix_123!",
-  "CRMMASKGCID": "25",
-  "ERPMASKGCID": "27",
-  "CRMMASKGCJOBID": "50",
-  "ERPMASKGCJOBID": "54"
+  "CRMMASKGCID": "",
+  "ERPMASKGCID": "",
+  "CRMMASKGCJOBID": "",
+  "ERPMASKGCJOBID": ""
 }
