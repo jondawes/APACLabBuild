@@ -340,9 +340,9 @@ echo ====================================================================
 echo ACTION REQUIRED:
 echo Verify that 4 environments have been created in the CCE: 
 echo  CRM Profile Demo - with an empty rule set, profile and mask jobs
-echo  CRM Mask GC - with a configuered rules set, profile and mask jobs
+echo  CRM Mask GC - with a configured rules set, profile and mask jobs
 echo  ERP Profile Demo - with an empty rule set, profile and mask jobs
-echo  ERP Mask GC - with a configuered rules set, profile and mask jobs
+echo  ERP Mask GC - with a configured rules set, profile and mask jobs
 echo 
 echo config.json should include the corrrect job IDs of the mask jobs from
 echo CRM Mask GC and ERP Mask GC

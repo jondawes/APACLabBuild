@@ -32,6 +32,11 @@ To build the environment, run each of the build scripts in turn as below.
 1. Create the production databases on the Postgres Source server. Two databases will be created and populated with data, **CRM** and **ERP**
 2. A script to be used to execute masking on Hook Scripts in a later stage will be deployed tot he Postgres Staging Server, this will require you interactively providing the password for the **postgres** user at the prompt
 
+*NOTE: This scripts uses the psql command and relies on it being pre-configured to be able to connect to the Postrgres server asn the postgres user without a password being supplied interactively.*
+
+Execute by simply running:
+**./1-ProdSetup.bash**
+
 #### Validation
 To confirm that this step has worked:
 1. Verify that no errors have been thrown by the script
@@ -39,7 +44,67 @@ To confirm that this step has worked:
 3. Ensure that in DBeaver, the **CRM PROD** and **ERP PROD** connections under **1-Production** are able to connect and the relevant queries in **DemoSQL.sql** are successful.
 
 ### 2-ContinuousComplianceSetup
+This script will configured the Continuos Compliance Engine. It relies on the values of CCEADDRESS, CCEUSER and CCEPWD in the config.json file.
+
+The script will:
+1. Create Applications in the CCE called APAC CRM and APAC ERP.
+2. Create two environments for the CRM app called CRM Profile Demo and CRM Mask GC.
+3. Create two environments for the ERP app called ERP Profile Demo and ERP Mask GC.
+4. Import 2 Multi-Column algorithms for use by the demo masking jobs, APAC - MC Address Aus Data and APAC - Conditional Identity.
+5. Import custom Profile Set **ASDD - APAC** which includes custom classifiers, domains and further custom algorithms. For identification in the engine these are all named **APAC - XX**
+6. Import configs for the 4 environments created in steps 2 and 3, which include connectors, jobs and for the Mask GC environments the algorithm configuration for the RuleSet.
+7. Saves the masking jobIDs for the MaskGC environments tot he config,json file for use in the next stage of setup.
+
+Execute by simply running:
+**./2-ContinuousComplianceSetup.bash**
+
+#### Validation
+To confirm that this step has worked:
+1. Verify that the 4 environments have been created in the Compliance Engine:
+    - CRM Profile Demo - with an empty rule set, profile and mask jobs
+    - CRM Mask GC - with a configured rules set, profile and mask jobs
+    - ERP Profile Demo - with an empty rule set, profile and mask jobs
+    - ERP Mask GC - with a configured rules set, profile and mask jobs
+2. Config.json should have the correct values for the masking jobs. e.g. the value of **CRMMASKGCJOBID** should be the id of the job **CRM - Mask GC - Mask**
+
+### 3-ContinousDataSetup
+This script will configured the Continuos Data Engine and Data Control Tower. It relies on the values of DCTADDRESS, CRMMASKGCJOBID and ERPMASKGCJOBID in the config.json file.
+
+The script will:
+1. Update the terrform files in the resources folder to use the DCTADDRESS and job ids retrieved from the config.json file. Running the Terraform scripts without this step will likely result in errors and may require restoring everything to default and starting again
+2. Runs the terraform located in **resources/tf-StaticEnvironment** which creates dSources, Masked GC, Dev, Test and Enrich vDBs. 
+    - Included in this config is the hookscript to execute masking ont he MaskGC copies, so they will be masked from first provision and the lower environments will all be masked when first provisioned.
+
+Execute by simply running:
+**./3-ContinousDataSetup.bash**
+
+#### Validation
+To confirm that this step has worked:
+1. In DCT ensure that under Data > Data Management > dSources that Postgres_erp and Postgres_crm are RUNNING
+2. In DCT under Data > Data Management > vDBs ensuyre the following vDBs are RUNNING
+    - crm-dev
+    - crm-enrich      With hook scrtip to add a record
+    - crm-mask        With masking hook script
+    - crm-qa
+    - erp-dev
+    - erp-enrich
+    - erp-mask        With masking hook script
+    - erp-qa
+3. In DCT under Data > Data Management > vDB Groups ensure the following groups exist:
+    - apac-dev
+    - apac-enrich
+    - apac-qa
+4. Ensure that in DBeaver, the connections under **2-Staging** and **3-Non-Production** relevant to the above listed vDBs are able to connect and the relevant queries in **DemoSQL.sql** are successful.
+
 
 ## Demo Scripts
 
+### Ephemeral Provision and Delete
+The Scripts 4a/4b with create and delete the crm-ephemeral and erp-ephemeral vDBs along with a VDB Group apac-ephemeral that contains the both. These vBDs will use the *-enrich vDBs as parents, so the added data in the crm-enrich database will be present.
+
+TO verify that the creating sctipt is wortking:
+- verify the components exist in DCT
+- verify the connections in DBeaver work and queries are successful
+
+These scripts can now be used repeatedly to show how databases can be rapidly provisioned.
 
