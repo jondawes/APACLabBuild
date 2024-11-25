@@ -1,4 +1,4 @@
-# APACLabBuild
+# APAC Lab Build
 
 This repository contains the components required to build an Australian based Delphix Demo. This is designed ot be built on top of the existing CLoudShare environment, though the contents could be customised to be deploying about into other environments.
 

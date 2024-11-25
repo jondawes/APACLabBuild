@@ -5,7 +5,7 @@ echo
 echo
 echo ====================================================================
 echo ACTION REQUIRED:
-echo Before you run thsi script, ensure the DCT evironment is created
+echo Before you run this script, ensure the DCT evironment is created
 echo 
 echo In Jenkins run the pipeline:
 echo            Demo 2.0 Postgres > 01A-Create DCT environment
@@ -30,8 +30,8 @@ echo
 
 # Update Terraform jobs with correct Job IDs in hook scripts
 echo updating hook scripts...
-sed -i "s/-p 1 -j 50 > crmMask.log/-p 1 -j $CRMMASKGCJOBID > crmMask.log/g" ./resources/tf-StaticEnvironment/main.tf
-sed -i "s/-p 1 -j 54 > erpMask.log/-p 1 -j $ERPMASKGCJOBID > erpMask.log/g" ./resources/tf-StaticEnvironment/main.tf
+sed -i "s/-p 1 -j  > crmMask.log/-p 1 -j $CRMMASKGCJOBID > crmMask.log/g" ./resources/tf-StaticEnvironment/main.tf
+sed -i "s/-p 1 -j  > erpMask.log/-p 1 -j $ERPMASKGCJOBID > erpMask.log/g" ./resources/tf-StaticEnvironment/main.tf
 echo
 
 # Get configuted SC Address
