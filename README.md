@@ -99,7 +99,7 @@ To confirm that this step has worked:
 
 ## Demo Scripts
 
-### Ephemeral Provision and Delete
+### Ephemeral Provision and Destroy
 The Scripts 4a/4b with create and delete the crm-ephemeral and erp-ephemeral vDBs along with a VDB Group apac-ephemeral that contains the both. These vBDs will use the *-enrich vDBs as parents, so the added data in the crm-enrich database will be present.
 
 TO verify that the creating sctipt is wortking:
@@ -108,3 +108,13 @@ TO verify that the creating sctipt is wortking:
 
 These scripts can now be used repeatedly to show how databases can be rapidly provisioned.
 
+### Profile Provision and Destroy
+The Scripts 5a/5b with create and delete the crm-profile and erp-profile vDBs. These vBDs will use the dSources as parents, so they will contain production data. The environments on the Compliance Engine CRM Profile Demo and ERP Profile Demo are  re-configuted to connect to these environments. They will have no algorithms configured, so you can run the profiler to configured algos, then run the masking job to mask it. Aside from the multi-column address and ID algos, the rest will match the Mask GC job.
+
+To verify that the creating sctipt is wortking:
+- verify the components exist in DCT
+- verify the connections in DBeaver work and queries are successful
+
+These scripts can now be used repeatedly to show how databases can be rapidly provisioned.
+
+To reset the Profile Demo config back to blank in the compliance engine, you can import the files in resources/MaskingEnvironments.
